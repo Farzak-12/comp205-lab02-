@@ -14,7 +14,8 @@ class CourseScreen extends StatefulWidget {
 
 class _CourseScreenState extends State<CourseScreen> {
   // TODO(Part 4): add the state you need (a counter and a favorite flag).
-
+  int _interested = 0;
+  bool _isFavourite = false;
   @override
   Widget build(BuildContext context) {
     // TODO(Part 1-5): replace this placeholder with the screen from the sketch.
@@ -23,12 +24,16 @@ class _CourseScreenState extends State<CourseScreen> {
     //  - Part 3: description inside a Card
     //  - Part 4: 'Interested: N' + "I'm interested" button + favorite IconButton
     //  - Part 5: no overflow on a small phone
-
+    
     return Scaffold(
-      appBar: AppBar(title: const Text('COMP 205')),
+      appBar: AppBar(
+        title: Text('COMP 205'),
+        
+      ),
+  
       body:
         Padding(
-          padding: EdgeInsets.all(15),
+          padding: EdgeInsets.all(16),
           child: Column(
             children: [
               //First Row
@@ -59,7 +64,7 @@ class _CourseScreenState extends State<CourseScreen> {
                 ],)
               ),
               
-              SizedBox(height: 20),
+              SizedBox(height: 10),
 
               //Second Row
               Row(
@@ -71,7 +76,22 @@ class _CourseScreenState extends State<CourseScreen> {
                 ],
               ),
             
-              SizedBox(height: 20),
+              SizedBox(height: 10),
+
+              Card(
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Text('Build AI-powered mobile apps with Flutter: from widgets to machine learning and LLMs.')
+                )
+              ),
+              
+              SizedBox(height: 20,),
+
+              Center(child: Text('Interested: $_interested'),),
+
+              SizedBox(height: 10,),
+              
+              ElevatedButton(onPressed: () => setState(()=>_interested++), child: Text("I'm interested")),
 
                
             ],
@@ -89,7 +109,7 @@ class scheduleItem extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    return Container(
+    return SizedBox(
       width: 100,
       height: 100,
       child:
