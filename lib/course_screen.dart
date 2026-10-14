@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 /// Lab 2 - build the "course card" screen from the sketch (LAB02.pdf, Figure 1).
@@ -39,20 +40,8 @@ class _CourseScreenState extends State<CourseScreen> {
                   children: [
                   
                   //School Icon
-                  Container(
-                    height: 50,
-                    width: 50,
-
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                    
-                    child: Icon(Icons.school)
-                  ),
+                  CircleAvatar(radius: 30, child: Icon(Icons.school)),
+              
                   
                   //Gap
                   SizedBox(width: 25),
@@ -62,7 +51,7 @@ class _CourseScreenState extends State<CourseScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Mobile Programming', style: Theme.of(context).textTheme.titleLarge),
-                        Text('Fall 2026 · B238', style: Theme.of(context).textTheme.titleLarge)
+                        Text('Fall 2026 · B238')
                       ],
                     )
                   )
@@ -70,12 +59,21 @@ class _CourseScreenState extends State<CourseScreen> {
                 ],)
               ),
               
+              SizedBox(height: 20),
+
+              //Second Row
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
+                  scheduleItem(icon: Icons.schedule, date: 'Mon 10:00'),
+                  scheduleItem(icon: Icons.computer, date: 'Wed 10:00'),
+                  scheduleItem(icon: Icons.groups, date: 'Fri 15:00'),
                 ],
-              )
+              ),
+            
+              SizedBox(height: 20),
 
+               
             ],
           )
         ,)
@@ -84,3 +82,25 @@ class _CourseScreenState extends State<CourseScreen> {
   }
 }
 
+class scheduleItem extends StatelessWidget{
+  const scheduleItem({super.key, required this.icon, required this.date});
+  final IconData icon;
+  final String date;
+
+  @override
+  Widget build(BuildContext context){
+    return Container(
+      width: 100,
+      height: 100,
+      child:
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(icon),
+            Text(date),
+          ],
+        )
+    );
+  }
+}
