@@ -35,74 +35,66 @@ class _CourseScreenState extends State<CourseScreen> {
   
       body:
         SingleChildScrollView(
-          child:
-          Padding(
-              padding: EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  //First Row
-                  SizedBox(
-                    height: 60,
-
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                      
-                      //School Icon
-                      CircleAvatar(radius: 30, child: Icon(Icons.school)),
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              //First Row
+              SizedBox(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
                   
-                      
-                      //Gap
-                      SizedBox(width: 25),
-
-                      Expanded(child:
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Mobile Programming', style: Theme.of(context).textTheme.titleLarge),
-                            Text('Fall 2026 · B238')
-                          ],
-                        )
-                      )
-                      
-                    ],)
-                  ),
-                  
-                  SizedBox(height: 10),
-
-                  //Second Row
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      scheduleItem(icon: Icons.schedule, date: 'Mon 10:00'),
-                      scheduleItem(icon: Icons.computer, date: 'Wed 10:00'),
-                      scheduleItem(icon: Icons.groups, date: 'Fri 15:00'),
-                    ],
-                  ),
-                
-                  SizedBox(height: 10),
-
-                  Card(
-                    child: Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Text('Build AI-powered mobile apps with Flutter: from widgets to machine learning and LLMs.')
-                    )
-                  ),
-                  
-                  SizedBox(height: 20,),
-
-                  Center(child: Text('Interested: $_interested'),),
-
-                  SizedBox(height: 10,),
-                  
-                  ElevatedButton(onPressed: () => setState(()=>_interested++), child: Text("I'm interested")),
-
-                  
-                ],
-              )
-            ,
-          )
+                  //School Icon
+                  CircleAvatar(radius: 30, child: Icon(Icons.school)),
               
+                  
+                  //Gap
+                  SizedBox(width: 25),
+
+                  Expanded(child:
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Mobile Programming', style: Theme.of(context).textTheme.titleLarge),
+                        Text('Fall 2026 · B238')
+                      ],
+                    )
+                  )
+                  
+                ],)
+              ),
+              
+              SizedBox(height: 10),
+
+              //Second Row
+              Row(
+                children: [
+                  Expanded(child: scheduleItem(icon: Icons.schedule, date: 'Mon 10:00')),
+                  Expanded(child: scheduleItem(icon: Icons.computer, date: 'Wed 10:00')),
+                  Expanded(child: scheduleItem(icon: Icons.groups, date: 'Fri 15:00')),
+                ],
+              ),
+            
+              SizedBox(height: 10),
+
+              Card(
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Text('Build AI-powered mobile apps with Flutter: from widgets to machine learning and LLMs.')
+                )
+              ),
+              
+              SizedBox(height: 20,),
+
+              Center(child: Text('Interested: $_interested'),),
+
+              SizedBox(height: 10,),
+              
+              ElevatedButton(onPressed: () => setState(()=>_interested++), child: Text("I'm interested")),
+
+              
+            ],
+          ),
         )
       );
   }
@@ -116,7 +108,6 @@ class scheduleItem extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return SizedBox(
-      width: 100,
       height: 100,
       child:
         Column(
